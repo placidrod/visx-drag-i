@@ -1,4 +1,4 @@
-import { getSeededRandom } from "@visx/mock-data";
+import { getSeededRandom } from '@visx/mock-data';
 
 export interface Circle {
   id: string;

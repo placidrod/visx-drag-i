@@ -51,7 +51,14 @@ export default function DragI({ width, height }: DragIProps) {
     <div className="Drag" style={{ touchAction: 'none' }}>
       <svg width={width} height={height}>
         <LinearGradient id="stroke" from="#ff00a5" to="#ffc500" />
-        <rect fill="#c4c3cb" width={width} height={height} rx={14} />
+        <rect
+          fill="#fff"
+          width={width}
+          height={height}
+          rx={5}
+          stroke="#000"
+          strokeWidth={1}
+        />
 
         {draggingItems.map((d, i) => (
           <Drag
@@ -81,7 +88,7 @@ export default function DragI({ width, height }: DragIProps) {
                 cx={x}
                 cy={y}
                 r={isDragging ? d.radius + 4 : d.radius}
-                fill={isDragging ? 'url(#stroke)' : colorScale(d.id)}
+                fill={isDragging ? 'url(#stroke)' : '#206CFE'}
                 transform={`translate(${dx}, ${dy})`}
                 fillOpacity={0.9}
                 stroke={isDragging ? 'white' : 'transparent'}
