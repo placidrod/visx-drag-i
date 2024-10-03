@@ -9,6 +9,6 @@ const root = createRoot(document.getElementById('root')!);
 
 root.render(
   <ParentSize>
-    {({ width, height }) => <Example width={width} height={400} />}
+    {({ width }) => <Example width={width} height={500} />}
   </ParentSize>
 );
