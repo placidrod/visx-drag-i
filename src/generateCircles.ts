@@ -1,7 +1,7 @@
 import { placeCirclesFitInArea } from './PlaceCirclesFitInArea';
 
 let rawData = [
-  { text: 'Biography', radius: 45 },
+  { text: 'Biography', radius: 50 },
   { text: 'Mystery', radius: 78 },
   { text: 'Thriller', radius: 32 },
   { text: 'War', radius: 67 },
@@ -38,7 +38,7 @@ const generateCircles = ({
   width: number;
   height: number;
 }) => {
-  const placedCircles = placeCirclesFitInArea(width, height, rawData, 10);
+  const placedCircles = placeCirclesFitInArea(width, height, rawData, 5);
 
   return placedCircles;
 
