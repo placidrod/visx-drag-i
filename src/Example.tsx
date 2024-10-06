@@ -1,24 +1,23 @@
 import { useState, useEffect, Fragment } from 'react';
 import generateCircles, { Circle } from './generateCircles';
 
-export type DragIProps = {
+export type Props = {
   width: number;
   height: number;
 };
 
-export default function DragI({ width, height }: DragIProps) {
-  const [draggingItems, setDraggingItems] = useState<Circle[]>([]);
+export default function Bubbles({ width, height }: Props) {
+  const [items, setItems] = useState<Circle[]>([]);
 
   useEffect(() => {
-    if (width > 10 && height > 10)
-      setDraggingItems(generateCircles({ width, height }));
+    if (width > 10 && height > 10) setItems(generateCircles({ width, height }));
   }, [width, height]);
 
-  if (draggingItems.length === 0 || width < 10) return null;
-  // console.log(draggingItems);
+  if (items.length === 0 || width < 10) return null;
+  console.log(items);
 
   return (
-    <div className="Drag" style={{ touchAction: 'none' }}>
+    <div style={{ touchAction: 'none' }}>
       <svg width={width} height={height}>
         <rect
           fill="#fff"
@@ -29,14 +28,14 @@ export default function DragI({ width, height }: DragIProps) {
           strokeWidth={1}
         />
 
-        {draggingItems.map((d, i) => (
+        {items.map((d, i) => (
           <Fragment key={d.id}>
             <circle
               key={`dot-${d.id}`}
               cx={d.x}
               cy={d.y}
               r={d.radius}
-              fill={'#FF7A1F'}
+              fill={'#206CFE'}
               // transform={`translate(${dx}, ${dy})`}
               fillOpacity={0.9}
               stroke={'transparent'}
@@ -46,10 +45,10 @@ export default function DragI({ width, height }: DragIProps) {
               <text
                 fill="white"
                 x={d.x}
-                y={d.y}
+                y={d.y + 4}
                 fontSize="12"
                 textAnchor="middle"
-                key={d.id}
+                // key={d.id}
               >
                 {d.id}
               </text>
